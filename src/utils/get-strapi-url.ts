@@ -2,11 +2,11 @@
 //  return process.env.STRAPI_API_URL ?? "http://localhost:1337";
 //}
 
-// export function getStrapiURL(path: string = ""): string {
-//   return (process.env.STRAPI_API_URL || "http://localhost:1337") + path;
-// }
-
 export function getStrapiURL(path: string = ""): string {
-  const baseUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
-  return baseUrl.replace(/\/$/, "") + path;
+  return (process.env.STRAPI_API_URL ) + path;
 }
+
+// export function getStrapiURL(path: string = ""): string {
+//   const baseUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
+//   return baseUrl.replace(/\/$/, "") + path;
+// }
