@@ -49,7 +49,7 @@ export function HeroSection({
 
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            
+            <h1>TeST GIT CONNECTION</h1>
             <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 text-transparent bg-clip-text">
               {heading}
             </span>
