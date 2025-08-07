@@ -15,21 +15,17 @@ export function StrapiImage({
   ...rest
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
+  console.log("[Strapi IMAGE at runtime]", getStrapiURL());
+
   if (!imageUrl) return null;
 
   return <Image src={imageUrl} alt={alt} className={className} {...rest} />;
 }
 
 export function getStrapiMedia(url: string | null) {
+  console.log("On strapi media",url);
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
-  const baseURL = "https://cmtprooptiki.gr";
-  if (url.includes("localhost:1337")) {
-    return url.replace("http://localhost:1337", baseURL);
-  }
-  if (url.includes("undefined")) {
-    return url.replace("undefined", baseURL);
-  }
   if (url.startsWith("http") || url.startsWith("https")|| url.startsWith("//")) return url;
-  return baseURL + url;
+  return getStrapiURL() + url;
 }
