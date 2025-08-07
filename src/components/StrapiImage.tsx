@@ -23,8 +23,7 @@ export function StrapiImage({
 export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
-  const baseURL = getStrapiURL();
-  console.log("getStrapiMedia", url, baseURL);
+  const baseURL = "https://cmtprooptiki.gr";
   if (url.includes("localhost:1337")) {
     return url.replace("http://localhost:1337", baseURL);
   }
