@@ -23,6 +23,10 @@ export function StrapiImage({
 export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
+  const baseURL = getStrapiURL();
+  if (url.includes("localhost:1337")) {
+    return url.replace("http://localhost:1337", baseURL);
+  }
   if (url.startsWith("http") || url.startsWith("https")|| url.startsWith("//")) return url;
-  return getStrapiURL() + url;
+  return baseURL + url;
 }
