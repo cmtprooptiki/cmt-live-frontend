@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getStrapiURL } from "@/utils/get-strapi-url";
+import { getStrapiURL2 } from "@/utils/get-strapi-url";
 
 interface StrapiImageProps {
   src: string;
@@ -15,7 +15,7 @@ export function StrapiImage({
   ...rest
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
-  console.log("[Strapi IMAGE at runtime]", getStrapiURL());
+  console.log("[Strapi IMAGE at runtime]", getStrapiURL2());
 
   if (!imageUrl) return null;
 
@@ -27,5 +27,5 @@ export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
   if (url.startsWith("http") || url.startsWith("https")|| url.startsWith("//")) return url;
-  return getStrapiURL() + url;
+  return getStrapiURL2() + url;
 }
