@@ -27,6 +27,9 @@ export function getStrapiMedia(url: string | null) {
   if (url.includes("localhost:1337")) {
     return url.replace("http://localhost:1337", baseURL);
   }
+  if (url.includes("undefined")) {
+    return url.replace("undefined", baseURL);
+  }
   if (url.startsWith("http") || url.startsWith("https")|| url.startsWith("//")) return url;
   return baseURL + url;
 }
