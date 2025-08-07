@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
+        pathname: "/uploads/**", // ✅ Fix: added slash and corrected wildcard
+      },
        {
         protocol: "https",
         hostname: "cmtprooptiki.gr",
