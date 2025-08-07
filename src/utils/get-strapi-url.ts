@@ -5,7 +5,7 @@
 export function getStrapiURL(path: string = ""): string {
   console.log("[Strapi PATH at runtime]",path);
 
-  return (process.env.STRAPI_API_URL ) + "";
+  return (process.env.STRAPI_API_URL ) + path;
 
 }
 
