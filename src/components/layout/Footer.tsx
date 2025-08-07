@@ -8,7 +8,7 @@ export function Footer({ data }: { data: FooterProps }) {
 
   
   const { logo, description,copyrightText,newsletterTitle, newsletterInputPlaceholder,newsletterButtonLabel, column, socialLink, bottomLink } = data;
-  console.log("Newsletter:", newsletterTitle,newsletterInputPlaceholder, newsletterButtonLabel )
+  console.log("Newsletter:", data?.column[0])
   return (
     <footer className="bg-white text-gray-800 mt-16">
 <div
