@@ -34,6 +34,7 @@ export function AboutSection({
       </div>
  
       {/* Infographic */}
+      { infographic && infographic.url && (
       <div className="mt-12 w-full bg-gray-100 p-4 flex justify-center items-center min-h-[200px] rounded">
         <StrapiImage
           src={infographic.url}
@@ -43,6 +44,7 @@ export function AboutSection({
           className="object-contain max-h-[300px] w-full"
         />
       </div>
+    )}
     </section>
   );
 }
