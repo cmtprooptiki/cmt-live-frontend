@@ -6,6 +6,7 @@ import type { FooterProps } from "@/types";
 export function Footer({ data }: { data: FooterProps }) {
   if (!data) return null;
 
+  console.log("Footer data:", data)
   const { logo, description,copyrightText,newsletterTitle, newsletterInputPlaceholder,newsletterButtonLabel, column, socialLink, bottomLink } = data;
 
   return (
