@@ -29,9 +29,9 @@ export function LogoCarouselBlock({ items }: LogoCarouselBlockProps) {
                   <StrapiImage
                     src={item.image.url}
                     alt={item.image.alternativeText || `Logo ${index + 1}`}
-                    width={120}
-                    height={60}
-                    className="object-contain w-[120px] h-[60px]"
+                    width={200}
+                    height={200}
+                    className="object-contain w-[200px] h-[200px]"
                   />
                 </li>
               ))}
