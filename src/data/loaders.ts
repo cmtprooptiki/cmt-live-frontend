@@ -260,7 +260,7 @@ export async function getPageBySlug(slug: string) {
 
 
 export async function getContent(path: string, featured?: boolean, query?: string, page?: string, category?: string) {
-  const url = new URL(path, BASE_URL2);
+  const url = new URL(path, BASE_URL);
 
   url.search = qs.stringify({
     sort: ["createdAt:desc"],
@@ -297,7 +297,7 @@ export async function getContent(path: string, featured?: boolean, query?: strin
     },
   });
 
-  return await fetchAPI(url.href, { method: "GET" });
+  return fetchAPI(url.href, { method: "GET" });
 }
 
 export async function getCategories() {
