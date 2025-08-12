@@ -300,6 +300,47 @@ export async function getContent(path: string, featured?: boolean, query?: strin
   return fetchAPI(url.href, { method: "GET" });
 }
 
+export async function getContent2(path: string, featured?: boolean, query?: string, page?: string, category?: string) {
+  const url = new URL(path, BASE_URL2);
+
+  url.search = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      ...(query && {
+        $or: [
+          { title: { $containsi: query } },
+          { description: { $containsi: query } },
+        ],
+      }),
+      ...(featured && { featured: { $eq: featured } }),
+      ...(category && {
+        categories: {
+          name: {
+            $eq: category,
+          },
+        },
+      }),
+    },
+    pagination: {
+      pageSize: BLOG_PAGE_SIZE,
+      page: parseInt(page || "1"),
+    },
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+      imageAuthor: {
+        fields: ["url", "alternativeText"],
+      },
+      categories: {
+        fields: ["name"], // ✅ get category names
+      },
+    },
+  });
+
+  return fetchAPI(url.href, { method: "GET" });
+}
+
 export async function getCategories() {
   const res = await fetchAPI(`${BASE_URL}/api/categories?fields[0]=name`, {
     method: "GET",

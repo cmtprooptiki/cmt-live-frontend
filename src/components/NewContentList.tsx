@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArticleProps } from "@/types";
-import { getContent } from "@/data/loaders";
+import { getContent2 } from "@/data/loaders";
 import { PaginationComponent } from "@/components/PaginationComponent";
 import { Search } from "@/components/Search";
 
@@ -41,7 +41,7 @@ export function NewContentList({
 
   useEffect(() => {
     async function loadData() {
-      const { data, meta } = await getContent(path, featured, query, currentPage, category);
+      const { data, meta } = await getContent2(path, featured, query, currentPage, category);
       setArticles(data);
       setPageCount(meta?.pagination?.pageCount || 1);
     }
