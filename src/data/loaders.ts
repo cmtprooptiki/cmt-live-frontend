@@ -1,5 +1,5 @@
 import qs from "qs";
-import { getStrapiURL } from "@/utils/get-strapi-url";
+import { getStrapiURL, getStrapiURL2 } from "@/utils/get-strapi-url";
 import { fetchAPI } from "@/utils/fetch-api";
 
 const homePageQuery = qs.stringify(
@@ -89,6 +89,7 @@ const homePageQuery = qs.stringify(
 
 const BLOG_PAGE_SIZE = 3;
 const BASE_URL = getStrapiURL();
+const BASE_URL2 = getStrapiURL2()
 
 
 
@@ -259,7 +260,7 @@ export async function getPageBySlug(slug: string) {
 
 
 export async function getContent(path: string, featured?: boolean, query?: string, page?: string, category?: string) {
-  const url = new URL(path, BASE_URL);
+  const url = new URL(path, BASE_URL2);
 
   url.search = qs.stringify({
     sort: ["createdAt:desc"],
