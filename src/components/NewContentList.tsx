@@ -42,7 +42,7 @@ export function NewContentList({
   useEffect(() => {
     async function loadData() {
       const { data, meta } = await getContent(path, featured, query, currentPage, category);
-      setArticles(data || []);
+      setArticles(data);
       setPageCount(meta?.pagination?.pageCount || 1);
     }
     loadData();
