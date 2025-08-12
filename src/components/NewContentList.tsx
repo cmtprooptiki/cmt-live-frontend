@@ -32,7 +32,7 @@ export function NewContentList({
   showPagination,
   layout = "grid",
 }: Readonly<ContentListProps2>) {
-  const [articles, setArticles] = useState<ArticleProps[]>;
+  const [articles, setArticles] = useState<ArticleProps[]>([]);
   const [pageCount, setPageCount] = useState<number>(1);
   const Component = component;
 
