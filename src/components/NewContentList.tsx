@@ -55,6 +55,7 @@ export function NewContentList({
   }[headlineAlignment];
 
   console.log("Articles",articles)
+  console.log("Path", path)
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-10">
