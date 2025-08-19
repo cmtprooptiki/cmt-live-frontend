@@ -26,7 +26,7 @@ export default function NewCategoryFilter({ categories }: Props) {
 
   const handleFilter = (category: string | null) => {
     const params = new URLSearchParams(window.location.search);
-    console.log("Params -> ", params)
+    console.log("Categorys -> ", category)
 
     // ✅ Reset page on category change
     params.set("page", "1");
