@@ -25,6 +25,7 @@ export default function CategoryFilter({ categories }: Props) {
   console.log("Selected: ", selected)
 
   const handleFilter = (category: string | null) => {
+    console.log("I am inside the Handle Filter")
     const params = new URLSearchParams(window.location.search);
      // ✅ Reset page on category change
     params.set("page", "1");
