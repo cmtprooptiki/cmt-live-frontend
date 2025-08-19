@@ -15,7 +15,6 @@ export function StrapiImage({
   ...rest
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
-  console.log("[Strapi IMAGE at runtime]", getStrapiURL2());
 
   if (!imageUrl) return null;
 
