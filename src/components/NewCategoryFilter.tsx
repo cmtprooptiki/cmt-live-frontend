@@ -15,20 +15,24 @@ interface Props {
 export default function NewCategoryFilter({ categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [selected, setSelected] = useState<string | null>(null);
+
+  // ✅ derive the actual category value from the URL
   const categoryParam = searchParams.get("category");
+  const [selected, setSelected] = useState<string | "all">("all");
 
+  // ✅ keep state in sync with URL param
   useEffect(() => {
-    setSelected(categoryParam);
+    if (categoryParam) {
+      setSelected(categoryParam);
+    } else {
+      setSelected("all");
+    }
   }, [categoryParam]);
-
-  // ✅ react to actual URL changes
 
   const handleFilter = (category: string | null) => {
     const params = new URLSearchParams(window.location.search);
-    console.log("Categorys -> ", category)
 
-    // ✅ Reset page on category change
+    // ✅ reset page when filter changes
     params.set("page", "1");
 
     if (category) {
@@ -63,11 +67,9 @@ export default function NewCategoryFilter({ categories }: Props) {
         {/* Right: Dropdown */}
         <select
           onChange={(e) =>
-          {
-            console.log("eeeeeeeeee -> ",e.target.value);
             handleFilter(e.target.value === "all" ? null : e.target.value)
-          }}
-          value={selected || "all"}
+          }
+          value={selected}
           className="px-4 py-2 border rounded-full text-sm text-gray-600"
         >
           <option value="all">Choose Category</option>
