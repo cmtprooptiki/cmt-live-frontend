@@ -8,7 +8,7 @@ import Link from "next/link";
 import { NewContentList } from "@/components/NewContentList";
 import { BlogCard } from "@/components/BlogCard";
 import CategoryFilter from "@/components/CategoryFilter";
-import {getPageBySlug,getCategories } from "@/data/loaders";
+import {getPageBySlug,getCategories2 } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
 // async function loader(slug: string) {
@@ -38,7 +38,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
   {
     async function getCat()
     {
-      const cat = await getCategories()
+      const cat = await getCategories2()
       setCategoryList(cat)
     }
     getCat()

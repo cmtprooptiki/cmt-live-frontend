@@ -363,6 +363,25 @@ export async function getCategories() {
   return Array.from(unique.values());
 }
 
+export async function getCategories2() {
+  const res = await fetchAPI(`${BASE_URL2}/api/categories?fields[0]=name`, {
+    method: "GET",
+  });
+
+  const raw = res?.data || [];
+
+  const unique = new Map();
+
+  for (const cat of raw) {
+    const id = cat.id;
+    const name = cat.name;
+    if (!unique.has(name)) {
+      unique.set(name, { id, name });
+    }
+  }
+
+  return Array.from(unique.values());
+}
 // export async function getContent(path: string, featured?:boolean,query?:string, page?:string) {
 //   const url = new URL(path, BASE_URL);
 
