@@ -22,15 +22,10 @@ export default function CategoryFilter({ categories }: Props) {
     setSelected(current);
   }, [searchParams]);
 
-  console.log("Selected: ", selected)
-
   const handleFilter = (category: string | null) => {
-    console.log("I am inside the Handle Filter")
     const params = new URLSearchParams(window.location.search);
      // ✅ Reset page on category change
     params.set("page", "1");
-
-    console.log("Categorys -> ", category)
 
     if (category) {
       params.set("category", category);
@@ -65,10 +60,8 @@ export default function CategoryFilter({ categories }: Props) {
         {/* Right: Dropdown */}
         <select
           onChange={(e) =>
-          {
-            console.log(e.target.value)
             handleFilter(e.target.value === "all" ? null : e.target.value)
-          }}
+          }
           value={selected || "all"}
           className="px-4 py-2 border rounded-full text-sm text-gray-600"
         >

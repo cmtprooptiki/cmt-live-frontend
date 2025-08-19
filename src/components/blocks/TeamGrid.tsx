@@ -7,7 +7,7 @@ import Link from "next/link";
 // import { ContentList} from "@/components/ContentList"
 import { NewContentList } from "@/components/NewContentList";
 import { BlogCard } from "@/components/BlogCard";
-import NewCategoryFilter from "@/components/NewCategoryFilter";
+import CategoryFilter from "@/components/CategoryFilter";
 import {getPageBySlug,getCategories2 } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
@@ -137,7 +137,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       )}
     </section>
     
-    <NewCategoryFilter categories={categoryList} />
+    <CategoryFilter categories={categoryList} />
     
         <NewContentList
       headline="Recent Insights"
