@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StrapiImage } from "@/components/StrapiImage";
 import { TeamGridProps } from "@/types";
 import { SocialIcon } from "react-social-icons";
@@ -7,8 +7,8 @@ import Link from "next/link";
 // import { ContentList} from "@/components/ContentList"
 import { NewContentList } from "@/components/NewContentList";
 import { BlogCard } from "@/components/BlogCard";
-import CategoryFilter from "@/components/CategoryFilter";
-import {getPageBySlug,getCategories } from "@/data/loaders";
+import NewCategoryFilter from "@/components/NewCategoryFilter";
+import {getPageBySlug,getCategories2 } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
 // async function loader(slug: string) {
@@ -25,7 +25,7 @@ interface TeamGridPropsExtended extends TeamGridProps {
 export  function TeamGrid({ Title, team_members, page, query, category }: Readonly<TeamGridPropsExtended>) {
   const [currentPage2, setCurrentPage2] = useState(1);
   const membersPerPage = 3;
- 
+  const [categoryList, setCategoryList] = useState<any[]>([]);
   const totalPages = Math.ceil(team_members.length / membersPerPage);
  
   const startIndex = (currentPage2 - 1) * membersPerPage;
@@ -33,7 +33,16 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
     startIndex,
     startIndex + membersPerPage
   );
-  
+
+  useEffect(() =>
+  {
+    async function getCat()
+    {
+      const cat = await getCategories2()
+      setCategoryList(cat)
+    }
+    getCat()
+  })
 
   // const categoryList = await getCategories();
 
@@ -126,7 +135,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       )}
     </section>
     
-    {/* <CategoryFilter categories={categoryList} /> */}
+    <NewCategoryFilter categories={categoryList} />
     
         <NewContentList
       headline="Recent Insights"
