@@ -34,7 +34,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
     startIndex + membersPerPage
   );
 
-  // const categoryList = await getCategories();
+  const categoryList = await getCategories();
 
   // console.log("eeeeeeee: ",currentPage2, totalPages, paginatedMembers);
 
@@ -125,7 +125,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       )}
     </section>
     
-    {/* <CategoryFilter categories={categoryList} /> */}
+    <CategoryFilter categories={categoryList} />
     
         <NewContentList
       headline="Recent Insights"
