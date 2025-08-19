@@ -16,12 +16,13 @@ export default function NewCategoryFilter({ categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selected, setSelected] = useState<string | null>(null);
+  const categoryParam = searchParams.get("category");
+
+  useEffect(() => {
+    setSelected(categoryParam);
+  }, [categoryParam]);
 
   // ✅ react to actual URL changes
-  useEffect(() => {
-    const current = searchParams.get("category");
-    setSelected(current);
-  }, [searchParams.toString()]);
 
   const handleFilter = (category: string | null) => {
     const params = new URLSearchParams(window.location.search);
