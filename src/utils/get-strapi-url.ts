@@ -3,14 +3,14 @@
 //}
 
 export function getStrapiURL(path: string = ""): string {
-  console.log("[Strapi PATH at runtime]",path);
+  // console.log("[Strapi PATH at runtime]",path);
 
   return (process.env.STRAPI_API_URL ) + path;
 
 }
 
 export function getStrapiURL2(path: string = ""): string {
-  console.log("[Strapi PATH at runtime]",path);
+  // console.log("[Strapi PATH at runtime]",path);
 
   return (process.env.NEXT_PUBLIC_STRAPI_API_URL) + path;
 
