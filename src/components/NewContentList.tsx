@@ -38,15 +38,16 @@ export function NewContentList({
 
   const searchParams = useSearchParams();
   const currentPage = searchParams.get("page") || "1"; // ✅ Read from URL
+  const searchQuery = searchParams.get("query") || "";
 
   useEffect(() => {
     async function loadData() {
-      const { data, meta } = await getContent2(path, featured, query, currentPage, category);
+      const { data, meta } = await getContent2(path, featured, searchQuery, currentPage,  category);
       setArticles(data);
       setPageCount(meta?.pagination?.pageCount || 1);
     }
     loadData();
-  }, [path, featured, query, currentPage, category]); // ✅ react to page changes
+  }, [path, featured, searchQuery, currentPage, category]); // ✅ react to page changes
 
   const alignmentClass = {
     left: "text-left",
