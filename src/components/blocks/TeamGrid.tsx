@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { StrapiImage } from "@/components/StrapiImage";
 import { TeamGridProps } from "@/types";
 import { SocialIcon } from "react-social-icons";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import { NewContentList } from "@/components/NewContentList";
 import { BlogCard } from "@/components/BlogCard";
 import CategoryFilter from "@/components/CategoryFilter";
-import {getPageBySlug,getCategories2 } from "@/data/loaders";
+import {getPageBySlug,getCategories } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
 // async function loader(slug: string) {
@@ -25,26 +25,15 @@ interface TeamGridPropsExtended extends TeamGridProps {
 export  function TeamGrid({ Title, team_members, page, query, category }: Readonly<TeamGridPropsExtended>) {
   const [currentPage2, setCurrentPage2] = useState(1);
   const membersPerPage = 3;
-  const [categoryList, setCategoryList] = useState<any[]>([]);
+ 
   const totalPages = Math.ceil(team_members.length / membersPerPage);
-  const category2 = category
  
   const startIndex = (currentPage2 - 1) * membersPerPage;
   const paginatedMembers = team_members.slice(
     startIndex,
     startIndex + membersPerPage
   );
-
-  useEffect(() =>
-  {
-    async function getCat()
-    {
-      const cat = await getCategories2()
-      setCategoryList(cat)
-    }
-    getCat()
-  })
-  console.log("category 2 -> ", category2)
+  
 
   // const categoryList = await getCategories();
 
@@ -137,7 +126,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       )}
     </section>
     
-    <CategoryFilter categories={categoryList} />
+    {/* <CategoryFilter categories={categoryList} /> */}
     
         <NewContentList
       headline="Recent Insights"
@@ -145,7 +134,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       component={BlogCard}
       featured
       showSearch
-      category={category2}
+      category={category}
       query={query}
       showPagination
     />
