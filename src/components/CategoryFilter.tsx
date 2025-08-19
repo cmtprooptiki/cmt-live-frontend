@@ -66,7 +66,7 @@ export default function CategoryFilter({ categories }: Props) {
         <select
           onChange={(e) =>
           {
-            console.log(e.target)
+            console.log(e.target.value)
             handleFilter(e.target.value === "all" ? null : e.target.value)
           }}
           value={selected || "all"}
