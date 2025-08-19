@@ -22,7 +22,7 @@ interface TeamGridPropsExtended extends TeamGridProps {
   category?: string;
 }
  
-export async function TeamGrid({ Title, team_members, page, query, category }: Readonly<TeamGridPropsExtended>) {
+export  function TeamGrid({ Title, team_members, page, query, category }: Readonly<TeamGridPropsExtended>) {
   const [currentPage2, setCurrentPage2] = useState(1);
   const membersPerPage = 3;
  
@@ -34,7 +34,7 @@ export async function TeamGrid({ Title, team_members, page, query, category }: R
     startIndex + membersPerPage
   );
 
-  const categoryList = await getCategories();
+  // const categoryList = await getCategories();
 
   // console.log("eeeeeeee: ",currentPage2, totalPages, paginatedMembers);
 
@@ -125,7 +125,7 @@ export async function TeamGrid({ Title, team_members, page, query, category }: R
       )}
     </section>
     
-    <CategoryFilter categories={categoryList} />
+    {/* <CategoryFilter categories={categoryList} /> */}
     
         <NewContentList
       headline="Recent Insights"
