@@ -338,6 +338,8 @@ export async function getContent2(path: string, featured?: boolean, query?: stri
     },
   });
 
+  console.log(url.toString());
+
   return fetchAPI(url.href, { method: "GET" });
 }
 
