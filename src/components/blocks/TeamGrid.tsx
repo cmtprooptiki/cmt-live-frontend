@@ -45,7 +45,6 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
   })
 
   // const categoryList = await getCategories();
-  console.log("Category List -> ", categoryList)
 
   // console.log("eeeeeeee: ",currentPage2, totalPages, paginatedMembers);
 

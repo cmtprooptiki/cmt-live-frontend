@@ -27,6 +27,8 @@ export default function CategoryFilter({ categories }: Props) {
      // ✅ Reset page on category change
     params.set("page", "1");
 
+    console.log("Categorys -> ", category)
+
     if (category) {
       params.set("category", category);
     } else {
