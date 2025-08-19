@@ -22,6 +22,8 @@ export default function CategoryFilter({ categories }: Props) {
     setSelected(current);
   }, [searchParams]);
 
+  console.log("Selected: ", selected)
+
   const handleFilter = (category: string | null) => {
     const params = new URLSearchParams(window.location.search);
      // ✅ Reset page on category change
