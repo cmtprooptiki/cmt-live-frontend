@@ -12,7 +12,7 @@ interface Props {
   categories: Category[];
 }
 
-export default function CategoryFilter({ categories }: Props) {
+export default function NewCategoryFilter({ categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selected, setSelected] = useState<string | null>(null);
