@@ -27,6 +27,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
   const membersPerPage = 3;
   const [categoryList, setCategoryList] = useState<any[]>([]);
   const totalPages = Math.ceil(team_members.length / membersPerPage);
+  const category2 = category
  
   const startIndex = (currentPage2 - 1) * membersPerPage;
   const paginatedMembers = team_members.slice(
@@ -143,7 +144,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       component={BlogCard}
       featured
       showSearch
-      category={category}
+      category={category2}
       query={query}
       showPagination
     />
