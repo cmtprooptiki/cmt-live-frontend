@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StrapiImage } from "@/components/StrapiImage";
 import { TeamGridProps } from "@/types";
 import { SocialIcon } from "react-social-icons";
@@ -25,7 +25,7 @@ interface TeamGridPropsExtended extends TeamGridProps {
 export  function TeamGrid({ Title, team_members, page, query, category }: Readonly<TeamGridPropsExtended>) {
   const [currentPage2, setCurrentPage2] = useState(1);
   const membersPerPage = 3;
- 
+  const [categoryList, setCategoryList] = useState([])
   const totalPages = Math.ceil(team_members.length / membersPerPage);
  
   const startIndex = (currentPage2 - 1) * membersPerPage;
@@ -33,6 +33,16 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
     startIndex,
     startIndex + membersPerPage
   );
+
+  useEffect(() =>
+  {
+    async function getCat()
+    {
+      const cat = await getCategories()
+      setCategoryList(cat)
+    }
+    getCat()
+  })
 
   // const categoryList = await getCategories();
 
@@ -125,7 +135,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
       )}
     </section>
     
-    {/* <CategoryFilter categories={categoryList} /> */}
+    <CategoryFilter categories={categoryList} />
     
         <NewContentList
       headline="Recent Insights"
