@@ -62,8 +62,10 @@ export default function NewCategoryFilter({ categories }: Props) {
         {/* Right: Dropdown */}
         <select
           onChange={(e) =>
+          {
+            console.log(e);
             handleFilter(e.target.value === "all" ? null : e.target.value)
-          }
+          }}
           value={selected || "all"}
           className="px-4 py-2 border rounded-full text-sm text-gray-600"
         >
