@@ -2,9 +2,23 @@
 import Link from "next/link";
 import { StrapiImage } from "../StrapiImage";
 import type { FooterProps } from "@/types";
+import { useActionState } from "react";
+import { subscribeAction } from "@/data/actions";
+
+const INITIAL_STATE = {
+  zodErrors: null,
+  strapiErrors: null,
+  errorMessage: null,
+  successMessage: null,
+};
 
 export function Footer({ data }: { data: FooterProps }) {
   if (!data) return null;
+
+  const [formState, formAction] = useActionState(
+    subscribeAction,
+    INITIAL_STATE
+  );
 
   
   const { logo, description,copyrightText,newsletterTitle, newsletterInputPlaceholder,newsletterButtonLabel, column, socialLink, bottomLink } = data;
@@ -101,14 +115,17 @@ export function Footer({ data }: { data: FooterProps }) {
         {/* Newsletter */}
         <div>
           <h4 className="text-sm font-semibold text-blue-600 mb-2">{newsletterTitle}</h4>
-          <input
-            type="email"
-            placeholder={newsletterInputPlaceholder}
-            className="w-full border px-3 py-2 mb-2 rounded"
-          />
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
-            {newsletterButtonLabel}
-          </button>
+          <form className="newsletter__form" action={formAction}>
+            <input
+              type="email"
+              name="email"
+              placeholder={newsletterInputPlaceholder}
+              className="w-full border px-3 py-2 mb-2 rounded"
+            />
+            <button type = "submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
+              {newsletterButtonLabel}
+            </button>
+          </form>
           <div className="flex gap-4 mt-4 text-blue-600">
        {socialLink?.map((link) =>
   link.href ? (
