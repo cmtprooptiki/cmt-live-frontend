@@ -20,6 +20,12 @@ export function Footer({ data }: { data: FooterProps }) {
     INITIAL_STATE
   );
 
+  const zodErrors = formState?.zodErrors?.email;
+  const strapiErrors = formState?.strapiErrors?.message;
+
+  const errorMessage = strapiErrors || zodErrors || formState?.errorMessage;
+  const successMessage = formState?.successMessage;
+
   
   const { logo, description,copyrightText,newsletterTitle, newsletterInputPlaceholder,newsletterButtonLabel, column, socialLink, bottomLink } = data;
   console.log("Newsletter:", data)
