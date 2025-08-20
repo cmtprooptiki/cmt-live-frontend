@@ -16,39 +16,33 @@ export async function subscribeAction(prevState: any,formData: FormData)
   const validatedFields = subscribeSchema.safeParse({
     email: email
   });
-  if(!validatedFields.success)
-  {
-    console.dir(validatedFields.error.flatten().fieldErrors, {depth: null})
+  if (!validatedFields.success) {
+    console.dir(validatedFields.error.flatten().fieldErrors, { depth: null });
 
-    return
-    {
-        ...prevState,
-        zodErrors: validatedFields.error.flatten().fieldErrors,
-        strapiErrors: null,
+    return {
+      ...prevState,
+      zodErrors: validatedFields.error.flatten().fieldErrors,
+      strapiErrors: null,
     };
   }
 
   const responseData = await subscribeService(validatedFields.data.email);
 
-  if(!responseData)
-  {
-    return
-    {
-        ...prevState,
-        strapiErrors: null,
-        zodErrors: null,
-        errorMessage: "Ops! Something went wrong. Please try again.",
+  if (!responseData) {
+    return {
+      ...prevState,
+      strapiErrors: null,
+      zodErrors: null,
+      errorMessage: "Ops! Something went wrong. Please try again.",
     };
   }
 
-  if(responseData.error)
-  {
-    return
-    {
-        ...prevState,
-        strapiErrors: responseData.error,
-        zodErrors: null,
-        errorMessage: "Failed to Subscribe",
+  if (responseData.error) {
+    return {
+      ...prevState,
+      strapiErrors: responseData.error,
+      zodErrors: null,
+      errorMessage: "Failed to Subscribe",
     };
   }
 
@@ -57,7 +51,7 @@ export async function subscribeAction(prevState: any,formData: FormData)
     zodErrors: null,
     strapiErrors: null,
     errorMessage: null,
-    successMessage: "Sucessfully Subscribed!",
+    successMessage: "Successfully Subscribed!",
   };
 
   console.log(email, "Our email input from form")
