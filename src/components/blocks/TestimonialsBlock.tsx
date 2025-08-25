@@ -5,7 +5,7 @@ import type { TestimonialsBlockProps } from "@/types";
 // import Image from "next/image";
 import { StrapiImage } from "../StrapiImage";
 import { AnimatedTestimonials } from "../ui/animated-testimonials";
-import { getStrapiURL2 } from "@/utils/get-strapi-url"; // ✅ ensure this exists
+import { getStrapiURL } from "@/utils/get-strapi-url"; // ✅ ensure this exists
 
 
 export function TestimonialsBlock({ items }: TestimonialsBlockProps) {
@@ -15,8 +15,9 @@ export function TestimonialsBlock({ items }: TestimonialsBlockProps) {
 
   return (
     <section className="py-12 flex justify-center">
-      <div className="max-w-5xl w-full px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Author image and info */}
+
+
+      {/* <div className="max-w-5xl w-full px-4 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="w-32 h-32 bg-gray-200 rounded-md overflow-hidden">
             {active.image?.url && (
@@ -33,13 +34,11 @@ export function TestimonialsBlock({ items }: TestimonialsBlockProps) {
           <p className="text-sm text-gray-500">{active.position}</p>
         </div>
 
-        {/* Quote */}
         <div className="flex-1">
           <p className="text-2xl text-gray-600 italic max-w-xl">
             “{active.quote}”
           </p>
 
-          {/* Dots */}
           <div className="flex gap-2 mt-6 justify-start">
             {items.map((_, i) => (
               <button
@@ -52,18 +51,19 @@ export function TestimonialsBlock({ items }: TestimonialsBlockProps) {
             ))}
           </div>
         </div>
-      </div>
-
-    <AnimatedTestimonials
+      </div> */}
+<AnimatedTestimonials
   testimonials={items.map((item) => ({
     quote: item.quote,
     name: item.name,
     designation: item.position,
     src: item.image?.url?.startsWith("http")
       ? item.image.url
-      : `${getStrapiURL2()}${item.image?.url}`,
+      : `${getStrapiURL()}${item.image?.url}`,
   }))}
-/>      
+/>
+
+      
      
     </section>
   );
