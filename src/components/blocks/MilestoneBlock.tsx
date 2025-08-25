@@ -1,4 +1,5 @@
 import type { MilestonesBlockProps } from "@/types";
+import Counter from "../ui/counter";
 
 export function MilestoneBlock({ /*title, description,*/ heading, milestones }: MilestonesBlockProps) {
   return (
@@ -45,17 +46,22 @@ export function MilestoneBlock({ /*title, description,*/ heading, milestones }: 
 </div>
 
         {/* Right section: Milestones */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {milestones.map((item, index) => (
-            <div key={index} className="text-center">
-              <h3 className="text-5xl font-bold text-gray-900">
-                {item.value}
-                <span className="text-blue-400">+</span>
-              </h3>
-              <p className="text-sm text-gray-500 mt-1">{item.label}</p>
-            </div>
-          ))}
-        </div>
+   <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  {milestones.map((item, index) => (
+    <div key={index} className="text-center">
+      <h3 className="text-5xl font-bold text-gray-900 flex items-baseline justify-center gap-2">
+        <Counter
+          number={item.value}
+          className="inline-flex items-baseline m-0"      // make wrapper inline
+          counterClassName="counter !text-5xl !my-0 !leading-none"
+          titleClassName="hidden"                        // hide (empty) title span
+        />
+        <span className="text-blue-400 text-4xl leading-none">+</span>
+      </h3>
+      <p className="text-sm text-gray-500 mt-1">{item.label}</p>
+    </div>
+  ))}
+</div>
       </div>
     </section>
   );
