@@ -64,7 +64,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
 
 
 
-                      <CometCard>
+                                            <CometCard>
                 <Link href={`/team/${member.slug}`}
                   // type="button"
                   className="my-10 flex w-80 cursor-pointer flex-col items-stretch rounded-[16px] border-0 bg-[#1F2121] p-2 saturate-0 md:my-20 md:p-4"
@@ -107,7 +107,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
                   <div className="mt-2 flex flex-shrink-0 items-center justify-between p-4 font-mono text-white">
                     <div className="text-xs">{member.FullName}</div>
                     <div className="text-xs text-gray-300 opacity-50">{member.JobTitle}</div>
-                    {member.LinkedInUrl && (
+                    {/* {member.LinkedInUrl && (
                         <div className="">
                           <SocialIcon
                             network="linkedin"
@@ -115,17 +115,14 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
                             style={{ height: 33, width: 33 }}
                           />
                         </div>
-                      )}
+                      )} */}
                   </div>
                 </Link>
               </CometCard>
-
-
-
-
+            {/* old fashion card code*/}
 
             {/* Profile Image */}
-            {member.ProfileImage?.url && (
+            {/* {member.ProfileImage?.url && (
               <Link href={`/team/${member.slug}`}>
                 <div className="w-full aspect-square mb-4 cursor-pointer hover:opacity-80 transition">
                   <StrapiImage
@@ -141,14 +138,14 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
                   />
                 </div>
               </Link>
-            )}
+            )} */}
  
             {/* Name and Title */}
-            <h3 className="text-xl font-semibold">{member.FullName}</h3>
-            <p className="text-gray-600">{member.JobTitle}</p>
+            {/* <h3 className="text-xl font-semibold">{member.FullName}</h3>
+            <p className="text-gray-600">{member.JobTitle}</p> */}
  
             {/* LinkedIn */}
-            {member.LinkedInUrl && (
+            {/* {member.LinkedInUrl && (
               <div className="flex justify-center mt-4">
                 <SocialIcon
                   network="linkedin"
@@ -156,7 +153,7 @@ export  function TeamGrid({ Title, team_members, page, query, category }: Readon
                   style={{ height: 33, width: 33 }}
                 />
               </div>
-            )}
+            )} */}
           </div>
         ))}
       </div>
