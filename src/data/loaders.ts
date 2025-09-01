@@ -7,7 +7,9 @@ const homePageQuery = qs.stringify(
     populate: {
       blocks: {
         on: {
-          "blocks.hero-section": {
+
+
+           "blocks.hero-section-main": {
             populate: {
               image: {
                 fields: ["url", "alternativeText"],
@@ -20,8 +22,26 @@ const homePageQuery = qs.stringify(
                 },
               },
               cta: true,
+               milestones: {
+                populate: true,
+              },
             },
           },
+          // "blocks.hero-section": {
+          //   populate: {
+          //     image: {
+          //       fields: ["url", "alternativeText"],
+          //     },
+          //     logo: {
+          //       populate: {
+          //         image: {
+          //           fields: ["url", "alternativeText"],
+          //         },
+          //       },
+          //     },
+          //     cta: true,
+          //   },
+          // },
           "blocks.info-block": {
             populate: {
               image: {
@@ -44,11 +64,16 @@ const homePageQuery = qs.stringify(
                   cta: true,
                 },
               },
+              cta: true
             },
           },
           "blocks.services-accordion-block": {
             populate: {
               items: true,
+              image: {
+                fields: ["url", "alternativeText"],
+              },
+              cta: true,
             },
           },
           "blocks.logo-carousel-block": {
@@ -85,7 +110,6 @@ const homePageQuery = qs.stringify(
   },
   { encodeValuesOnly: true }
 );
-
 
 const BLOG_PAGE_SIZE = 3;
 const BASE_URL = getStrapiURL();

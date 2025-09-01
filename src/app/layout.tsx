@@ -39,6 +39,13 @@ export default async function RootLayout({
   const { header, footer } = await loader();
   return (
     <html lang="en">
+            <head>
+
+      <link rel="stylesheet" href="https://use.typekit.net/wtb8azc.css"/>
+      <link rel="stylesheet" href="https://use.typekit.net/vfu6mno.css"/>
+ 
+            </head>
+
       <body
         className={`${roboto.variable} ${geistMono.variable} antialiased`}
       >

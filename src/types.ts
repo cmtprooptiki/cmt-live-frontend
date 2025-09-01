@@ -72,7 +72,7 @@ export interface ArticleProps {
 
 
 
-type ComponentType = "blocks.hero-section" | "blocks.info-block"   
+type ComponentType ="blocks.hero-section-main" | "blocks.hero-section" | "blocks.info-block"   
                 | "blocks.milestones-block" | "blocks.vertical-accordion-block" 
                 | "blocks.services-accordion-block" | "blocks.logo-carousel-block"
                  | "blocks.testimonials-block" | "blocks.features-block" 
@@ -99,7 +99,7 @@ interface Base<
   data?: D;
 }
 
-export type Block = HeroSectionProps | InfoBlockProps | MilestonesBlockProps
+export type Block = HeroSectionMainProps | HeroSectionProps | InfoBlockProps | MilestonesBlockProps
  | VerticalAccordionBlockProps | ServicesAccordionBlockProps 
  | LogoCarouselBlockProps | TestimonialsBlockProps 
  | FeaturesBlockProps | FeaturedArticleProps | AboutSectionProps | AboutInfoProps
@@ -109,6 +109,19 @@ export type Block = HeroSectionProps | InfoBlockProps | MilestonesBlockProps
   | FullImageProps
   | StickyMenuProps
   |TeamGridProps;
+
+export interface HeroSectionMainProps extends Base<"blocks.hero-section-main"> {
+  theme: "black" | "blue";
+  heading: string;
+  image: ImageProps;
+  cta?: LinkProps;
+  milestones: Milestone[];
+  logo?: LogoProps;
+  author?: string;
+  darken?: boolean;
+}
+
+
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   theme: "black" | "blue";
@@ -124,6 +137,7 @@ export interface InfoBlockProps extends Base<"blocks.info-block"> {
   theme: "black" | "red";
   reversed?: boolean;
   headline: string;
+  description:string;
   content: string;
   image: ImageProps;
   cta?: LinkProps;
@@ -172,6 +186,8 @@ export interface AccordionItem {
 export interface VerticalAccordionBlockProps extends Base<"blocks.vertical-accordion-block"> {
   title?: string;
   items: AccordionItem[];
+    cta?: LinkProps;
+
 }
 
 
@@ -186,6 +202,8 @@ export interface ServicesAccordionBlockProps {
   id: number;
   heading:string;
   items: ServiceAccordionItem[];
+  image: ImageProps;
+  cta?: LinkProps;
 }
 
 

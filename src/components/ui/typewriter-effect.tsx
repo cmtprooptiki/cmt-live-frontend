@@ -102,6 +102,7 @@ export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
+  
 }: {
   words: {
     text: string;
@@ -126,7 +127,7 @@ export const TypewriterEffectSmooth = ({
               {word.text.map((char, index) => (
                 <span
                   key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
+                  className={cn(`dark:text-white text-white `, word.className)}
                 >
                   {char}
                 </span>
@@ -149,6 +150,10 @@ export const TypewriterEffectSmooth = ({
         whileInView={{
           width: "fit-content",
         }}
+        viewport={{ 
+          once: true 
+        }}              // 👈 this makes it run once only
+
         transition={{
           duration: 2,
           ease: "linear",
@@ -156,7 +161,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-6xl"
           style={{
             whiteSpace: "nowrap",
           }}
@@ -177,6 +182,7 @@ export const TypewriterEffectSmooth = ({
           repeat: Infinity,
           repeatType: "reverse",
         }}
+        
         className={cn(
           "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
           cursorClassName

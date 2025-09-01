@@ -17,11 +17,14 @@ import { Paragraph } from "@/components/blocks/Paragraph";
 import { ParagraphWithImage } from "@/components/blocks/ParagraphWithImage";
 import { StickyMenuBlock } from "@/components/blocks/StickyMenuBlock";
 import { TeamGrid } from "@/components/blocks/TeamGrid";
+import { HeroSectionMain } from "@/components/blocks/HeroSectionMain";
 
 
 function blockRenderer(block: Block, index: number,allBlocks: Block[]) {
     
   switch (block.__component) {
+        case "blocks.hero-section-main":
+      return <HeroSectionMain {...block} key={index} />;
     case "blocks.hero-section":
       return <HeroSection {...block} key={index} />;
     case "blocks.info-block":
