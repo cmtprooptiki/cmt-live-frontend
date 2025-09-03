@@ -52,7 +52,7 @@ export default async function HomeRoute({ searchParams }: PageProps) {
   const blocks = data?.blocks || [];
  
   const isHeader = (block: any) =>
-    block.__component === "blocks.hero-section";
+    block.__component === "blocks.hero-section-main";
  
   const headerBlocks = blocks.filter(isHeader);
   const contentBlocks = blocks.filter((block: any) => !isHeader(block));
