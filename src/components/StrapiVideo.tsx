@@ -1,6 +1,7 @@
 // components/StrapiVideo.tsx
 
-import { getStrapiURL } from "@/utils/get-strapi-url";
+// import { getStrapiURL } from "@/utils/get-strapi-url";
+import { getStrapiURL2 } from "@/utils/get-strapi-url";
 
 interface StrapiVideoProps {
   src: string;
@@ -39,9 +40,16 @@ export function StrapiVideo({
   );
 }
 
-function getStrapiMedia(url: string | null) {
+// function getStrapiMedia(url: string | null) {
+//   if (url == null) return null;
+//   if (url.startsWith("data:")) return url;
+//   if (url.startsWith("http") || url.startsWith("//")) return url;
+//   return getStrapiURL() + url;
+// }
+
+export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
-  if (url.startsWith("http") || url.startsWith("//")) return url;
-  return getStrapiURL() + url;
+  if (url.startsWith("http") || url.startsWith("https")|| url.startsWith("//")) return url;
+  return getStrapiURL2() + url;
 }
