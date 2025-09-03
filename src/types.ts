@@ -218,6 +218,7 @@ export interface LogoCarouselItem {
     url: string;
     alternativeText?: string;
   };
+  type?:string;
 }
 
 export interface LogoCarouselBlockProps extends Base<"blocks.logo-carousel-block"> {
