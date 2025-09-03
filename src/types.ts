@@ -84,6 +84,8 @@ type ComponentType ="blocks.hero-section-main" | "blocks.hero-section" | "blocks
                   | "blocks.paragraph"
                   | "blocks.full-image"
                   | "blocks.sticky-menu"
+				  | "blocks.secondary-menu"
+		   
                   |"blocks.team-grid";
 
 interface Base<
@@ -108,6 +110,7 @@ export type Block = HeroSectionMainProps | HeroSectionProps | InfoBlockProps | M
   | ParagraphProps
   | FullImageProps
   | StickyMenuProps
+  | SecondaryMenuProps
   |TeamGridProps;
 
 export interface HeroSectionMainProps extends Base<"blocks.hero-section-main"> {
@@ -318,6 +321,27 @@ export interface StickyMenuProps {
   aboutInfoBlocks: Block[];
 }
 
+
+export interface SecondaryMenuProps {
+  // __component: "blocks.sticky-menu";
+  // id: number;
+  // logo?: LogoProps;
+  // text: string;
+  // href: string;
+  // isExternal: boolean;
+  id:number;
+  __component: "blocks.secondary-menu";
+    title:string;
+    slug:string;
+    items?: {
+    label: string;
+    href: string;
+    icon?: ImageProps;
+  }[];
+  
+  
+  aboutInfoBlocks: Block[];
+}
 export interface TeamMember {
   id: number;
   FullName: string;

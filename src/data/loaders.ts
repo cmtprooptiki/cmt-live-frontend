@@ -194,6 +194,17 @@ const pageBySlugQuery = (slug: string) =>
         },
       },
       populate: {
+          secondary_menus: {
+          populate: {
+            items: {
+              populate: {
+                icon: {
+                  fields: ["url", "alternativeText"],
+                },
+              },
+            },
+          },
+        },
         blocks: {
           on: {
             "blocks.hero-section": {
