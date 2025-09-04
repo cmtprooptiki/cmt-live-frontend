@@ -169,8 +169,32 @@ const globalSettingQuery = qs.stringify({
         },
         socialLink: true,
         bottomLink: true,
+          // 👇 NEW: background image behind the dark section
+        contactBackground: {
+          fields: ["url", "alternativeText"],
+        },
       },
     },
+    // footer: {
+    //   populate: {
+    //     logo: {
+    //       populate: {
+    //         image: {
+    //           fields: ["url", "alternativeText"],
+    //         },
+    //       },
+    //     },
+    //      column: {
+    //       populate: {
+    //         link: true,
+    //       },
+    //     },
+    //     socialLink: true,
+    //     bottomLink: true,
+    //   },
+    // },
+
+
   },
 });
 

@@ -7,6 +7,21 @@ export interface LinkProps {
   isExternal: boolean;
 }
 
+
+// NEW: match Strapi exactly
+export interface SocialLink {
+  id: number;
+  icon: string;   // e.g. "linkedin", "facebook", "x", "youtube"
+  url: string;
+}
+
+export interface BottomLink {
+  id: number;
+  icon: string;   // e.g. "mail", "map-pin", "phone"
+  text: string;
+  url: string;
+}
+
 export interface ImageProps {
   id: number;
   documentId: string;
@@ -162,6 +177,7 @@ export interface MilestonesBlockProps extends Base<"blocks.milestones-block"> {
   milestones: Milestone[];
 }
 
+
 export interface FooterProps {
   logo: LogoProps;
   description: string;
@@ -174,8 +190,10 @@ export interface FooterProps {
     title: string;
     link: LinkProps[];
   }[];
-  socialLink: LinkProps[];
-  bottomLink: LinkProps[];
+    // 👇 use the correct shapes
+  socialLink: SocialLink[];
+  bottomLink: BottomLink[];
+  contactBackground:ImageProps
 }
 
 
