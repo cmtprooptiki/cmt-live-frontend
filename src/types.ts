@@ -94,6 +94,7 @@ type ComponentType ="blocks.hero-section-main" | "blocks.hero-section" | "blocks
                  | "blocks.featured-article"
                  | "blocks.about-info"
                  | "blocks.about-section"
+                 | "blocks.leading-institution-block"
                  | "blocks.heading"
                   | "blocks.paragraph-with-image"
                   | "blocks.paragraph"
@@ -122,6 +123,7 @@ export type Block = HeroSectionMainProps | HeroSectionProps | InfoBlockProps | M
  | FeaturesBlockProps | FeaturedArticleProps | AboutSectionProps | AboutInfoProps
    | HeadingProps
   | ParagraphWithImageProps
+  | LeadingInstitutionBlockProps
   | ParagraphProps
   | FullImageProps
   | StickyMenuProps
@@ -229,6 +231,12 @@ export interface ServicesAccordionBlockProps {
 
 
 
+export interface LeadingInstitutionBlockProps extends Base<"blocks.leading-institution-block"> {
+  Title: string;
+  description: string;
+  Heading: string;
+  cta?: LinkProps;
+}
 
 
 export interface LogoCarouselItem {
@@ -261,6 +269,7 @@ export interface TestimonialsBlockProps {
   id: number;
   heading?: string;
   items: TestimonialItem[];
+  cta?: LinkProps;
 }
 
 export interface FeaturesBlockProps {

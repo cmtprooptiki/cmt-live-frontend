@@ -76,6 +76,12 @@ const homePageQuery = qs.stringify(
               cta: true,
             },
           },
+          "blocks.leading-institution-block":{
+              populate:
+              {
+                cta: true,
+              }
+            },
           "blocks.logo-carousel-block": {
             populate: {
               items: {
@@ -96,6 +102,7 @@ const homePageQuery = qs.stringify(
                   },
                 },
               },
+              cta: true,
             },
           },
           "blocks.features-block": {
