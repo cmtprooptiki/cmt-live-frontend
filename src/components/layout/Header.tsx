@@ -27,7 +27,7 @@ export function Header({ data }: HeaderProps) {
   const { logo, navigation, cta} = data;
  
   return (
- <header id="site-header" className={`w-full z-50 transition-colors duration-300 ${ overlay ? "absolute top-0 bg-transparent" : "fixed top-0 left-0 bg-transparent "}`} >
+ <header id="site-header" className={`w-full z-50 transition-colors duration-300 ${ overlay ? "fixed top-0 bg-transparent" : "fixed top-0 left-0 bg-transparent "}`} >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between rounded-md navbar-blur" style={{background: "#FFFFFFFF", marginTop: "20px", boxShadow: "0 8px 20px rgba(0, 0, 0, 0.25)"}}>
         {/* Logo */}
