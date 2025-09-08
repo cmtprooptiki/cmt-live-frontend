@@ -47,7 +47,7 @@ export default async function BlogRoute({ searchParams }: PageProps) {
 />
       )}
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8" style={{paddingTop:"124px"}}>
   <div className="space-y-2">
     <h2 className="text-2xl sm:text-3xl font-light text-gray-900">
       <span className="italic font-semibold text-[#1E9BFB]">Interested</span>

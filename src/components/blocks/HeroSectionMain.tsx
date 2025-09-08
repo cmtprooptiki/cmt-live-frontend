@@ -36,7 +36,7 @@ export function HeroSectionMain({
       </div>
 
       {/* Content (no horizontal centering) */}
-      <div className="relative isolate pt-16 md:pt-24 pb-20 md:pb-28">
+      <div className="relative isolate pt-16 md:pt-52 lg:pt-62 pb-20 md:pb-28">
         {/* left rail container */}
         <div className="w-full text-left pl-6 sm:pl-12 lg:pl-24 xl:pl-28">
           {/* tiny welcome row */}
